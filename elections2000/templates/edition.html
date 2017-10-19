@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+<div class="edition">
+    <h1 id="id_edition_header"></h1>
+    <form id="edition" action='' method="post">
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        <label> Votes: </label>
+        <input id="id_votes" type="number" value="0" required>
+        <input id="id_edit_votes" type="submit" value="Edit">
+        <p class="error"></p>
+    </form>
+</div>

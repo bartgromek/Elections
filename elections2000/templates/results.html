@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block table %}
+    <h1 id="table_header"></h1>
+    <table class="table-striped table-bordered table-hover">
+        <thead class="thead-inverse">
+            <th>Candidate</th>
+            <th>Votes</th>
+            <th>Percentage</th>
+            <th>Chart</th>
+        </thead>
+        <tbody>
+            <script>
+                addEmptyTable();
+                updateTable('country')
+            </script>
+        </tbody>
+    </table>
+{% endblock %}

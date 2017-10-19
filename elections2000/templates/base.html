@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'elections2000/style.css' %}" >
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <!-- custom scripts -->
+    <script type="text/javascript" src="{% static 'elections2000/table_generator.js' %}"></script>
+    <script type="text/javascript" src="{% static 'elections2000/units.js' %}"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <!-- Row #1 -->
+    <div class="row" id="upper_bar">
+        <div class="col-md-6 align-self-center">
+            <div class="login">
+                Hi!
+                <a href="" class="button" id="login"> sign in </a>
+                or
+                <a href="" class="button" id="register"> register </a>
+            </div>
+        </div>
+        <div class="col-md-6 text-right align-self-center">
+            <div class="unit_search">
+                <form autocomplete=off  action="javascript: search();" method="post" id="id_gmina">
+                    {% csrf_token %}
+                    <input placeholder="unit name" type="text" name="unit" id="unit" value="">
+                    <input type="submit" id="gm_submit" value="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row #2 -->
+    <div class="row" id="main_header">
+        <div class="col-md-12 text-center align-self-center">
+            <h1>Presidential Elections Poland 2000</h1>
+        </div>
+    </div>
+
+    <!-- Row #3 -->
+    <div class="row" id="table">
+        <div class="col-md-12" align="center">
+            {% block table %} {% endblock %}
+        </div>
+    </div>
+
+    <!-- Row #4 -->
+    <div class="row" >
+        <div class="col-md-12" align="center">
+            <div id="division">
+                <script>
+                    division('voivs');
+                </script>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+
+</html>
